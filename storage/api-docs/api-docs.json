@@ -1,0 +1,1164 @@
+{
+    "openapi": "3.0.0",
+    "info": {
+        "title": "APIs For Madan Transport",
+        "version": "1.0.0"
+    },
+    "paths": {
+        "/api/request-otp": {
+            "post": {
+                "tags": [
+                    "Request Otp"
+                ],
+                "summary": "GET Otp",
+                "description": "GET Otp",
+                "operationId": "GET Otp",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "mobile"
+                                ],
+                                "properties": {
+                                    "mobile": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Enter Mobile Number"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/check-otp": {
+            "post": {
+                "tags": [
+                    "Check Otp"
+                ],
+                "summary": "Check Otp",
+                "description": "check Otp",
+                "operationId": "Verify Otp",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "otp",
+                                    "mobile"
+                                ],
+                                "properties": {
+                                    "otp": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "Enter Otp"
+                                    },
+                                    "mobile": {
+                                        "type": "number",
+                                        "format": "number",
+                                        "example": "Enter mobile number"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/register": {
+            "post": {
+                "tags": [
+                    "User Register"
+                ],
+                "summary": "User Register",
+                "description": "User Registration",
+                "operationId": "User Register",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "mobile",
+                                    "name",
+                                    "email",
+                                    "company_name",
+                                    "address"
+                                ],
+                                "properties": {
+                                    "mobile": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Enter Mobile Number"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Enter User Name"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Enter Email Id"
+                                    },
+                                    "company_name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Enter company Name"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Enter Address"
+                                    },
+                                    "fcm_id": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Enter fcm_id"
+                                    },
+                                    "image": {
+                                        "type": "file",
+                                        "format": "string",
+                                        "example": ""
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                }
+            }
+        },
+        "/api/profile-view": {
+            "get": {
+                "tags": [
+                    "View User Profile"
+                ],
+                "summary": "Get user profile",
+                "description": "Get user profile",
+                "operationId": "viewProfile",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/profile-update": {
+            "post": {
+                "tags": [
+                    "Profile Update"
+                ],
+                "summary": "Profile Update",
+                "description": "Update user profile details",
+                "operationId": "profileUpdate",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "mobile",
+                                    "name",
+                                    "email",
+                                    "company_name",
+                                    "address"
+                                ],
+                                "properties": {
+                                    "mobile": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Enter Mobile Number"
+                                    },
+                                    "name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Enter User Name"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Enter Email Id"
+                                    },
+                                    "company_name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Enter company Name"
+                                    },
+                                    "address": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Enter Address"
+                                    },
+                                    "fcm_id": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Enter fcm id"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/language-update": {
+            "post": {
+                "tags": [
+                    "Language Update"
+                ],
+                "summary": "Language Update",
+                "description": "Update user Language",
+                "operationId": "languageUpdate",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "preffered_language"
+                                ],
+                                "properties": {
+                                    "preffered_language": {
+                                        "type": "number",
+                                        "format": "string",
+                                        "example": "1"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/home-page": {
+            "get": {
+                "tags": [
+                    "Home page details"
+                ],
+                "summary": "Get home Page details",
+                "description": "Get home Page details",
+                "operationId": "Home Page",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/vehicle-specs": {
+            "get": {
+                "tags": [
+                    "vehicles spec details"
+                ],
+                "summary": "Get specification details",
+                "description": "Get vehicle specification details",
+                "operationId": "vehicle Specs",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/vehicles": {
+            "get": {
+                "tags": [
+                    "user vehicle List"
+                ],
+                "summary": "user vehicle List",
+                "description": "Get user vehicle List",
+                "operationId": "vehicles",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/enquiry/load-request": {
+            "post": {
+                "tags": [
+                    "Load Request Enquiry"
+                ],
+                "summary": "store load request enquiry",
+                "description": "Store load request enquiry",
+                "operationId": "postLoadRequest",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "name",
+                                    "email",
+                                    "mobile",
+                                    "description",
+                                    "load_id"
+                                ],
+                                "properties": {
+                                    "name": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "example": "enter your name"
+                                    },
+                                    "email": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "example": "enter your email address"
+                                    },
+                                    "mobile": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "example": "enter your mobile number"
+                                    },
+                                    "description": {
+                                        "type": "string",
+                                        "format": "number",
+                                        "example": "enter description"
+                                    },
+                                    "load_id": {
+                                        "type": "integer",
+                                        "format": "number",
+                                        "example": "enter load_id"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/notifications": {
+            "get": {
+                "tags": [
+                    "user Notifications"
+                ],
+                "summary": "user Notification List",
+                "description": "Get user Notification List",
+                "operationId": "notificationList",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/notification/read-status": {
+            "get": {
+                "tags": [
+                    "Notification read status"
+                ],
+                "summary": "Get Notification read status",
+                "description": "Get Notification read status",
+                "operationId": "notificationReadStatus",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/load-detail/{load_id}": {
+            "get": {
+                "tags": [
+                    "Load details"
+                ],
+                "summary": "Get load details",
+                "description": "Get load details",
+                "operationId": "Load details",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/trip-loads": {
+            "get": {
+                "tags": [
+                    "Load Trip List"
+                ],
+                "summary": "Get trip status list",
+                "description": "Get trip status list",
+                "operationId": "TripLoads",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/crmapi/load/slip-upload": {
+            "post": {
+                "tags": [
+                    "Upload Load Slip"
+                ],
+                "summary": "Upload Load Slip",
+                "description": "Upload Load Slip",
+                "operationId": "uploadLoadSlip",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "load_id",
+                                    "slip_image"
+                                ],
+                                "properties": {
+                                    "load_id": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "1"
+                                    },
+                                    "slip_image": {
+                                        "type": "file",
+                                        "format": "string",
+                                        "example": "slip.png"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/trip-status/update": {
+            "post": {
+                "tags": [
+                    "Trip Status Update"
+                ],
+                "summary": "update trip status",
+                "description": "update trip status",
+                "operationId": "tripStatusUpdate",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "load_id",
+                                    "status"
+                                ],
+                                "properties": {
+                                    "load_id": {
+                                        "type": "integer",
+                                        "format": "number",
+                                        "example": "enter load id"
+                                    },
+                                    "status": {
+                                        "type": "integer",
+                                        "format": "number",
+                                        "example": "enter status"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/vehicle-kyc/add": {
+            "post": {
+                "tags": [
+                    "Add Vehicle Kyc"
+                ],
+                "summary": "Store Vehicle Kyc",
+                "operationId": "postVehicleKyc",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "multipart/form-data": {
+                            "schema": {
+                                "required": [
+                                    "vehicle_type_id",
+                                    "wheel_id",
+                                    "ton_id",
+                                    "model",
+                                    "from_place",
+                                    "to_place",
+                                    "vehicle_number",
+                                    "owner_name",
+                                    "owner_address",
+                                    "driver_name",
+                                    "driver_address",
+                                    "driver_mobile",
+                                    "driver_licence",
+                                    "vehicle_rc",
+                                    "insurance_fc",
+                                    "profile_image"
+                                ],
+                                "properties": {
+                                    "vehicle_type_id": {
+                                        "type": "integer",
+                                        "format": "number",
+                                        "example": "1"
+                                    },
+                                    "wheel_id": {
+                                        "type": "integer",
+                                        "format": "number",
+                                        "example": "1"
+                                    },
+                                    "ton_id": {
+                                        "type": "integer",
+                                        "format": "number",
+                                        "example": "1"
+                                    },
+                                    "model": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "tata"
+                                    },
+                                    "vehicle_number": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "TN09876"
+                                    },
+                                    "from_place": {
+                                        "type": "integer",
+                                        "format": "string",
+                                        "example": "1"
+                                    },
+                                    "to_place": {
+                                        "type": "integer",
+                                        "format": "string",
+                                        "example": "1"
+                                    },
+                                    "owner_name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "name"
+                                    },
+                                    "owner_address": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "address"
+                                    },
+                                    "driver_name": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Enter driver name"
+                                    },
+                                    "driver_mobile": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Enter driver mobile"
+                                    },
+                                    "driver_address": {
+                                        "type": "string",
+                                        "format": "string",
+                                        "example": "Enter driver address"
+                                    },
+                                    "driver_licence": {
+                                        "type": "file",
+                                        "format": "string",
+                                        "example": "upload driver licence"
+                                    },
+                                    "vehicle_rc": {
+                                        "type": "file",
+                                        "format": "string",
+                                        "example": "upload vehicle RC"
+                                    },
+                                    "insurance_fc": {
+                                        "type": "file",
+                                        "format": "string",
+                                        "example": "upload insurance Fc"
+                                    },
+                                    "profile_image": {
+                                        "type": "file",
+                                        "format": "string",
+                                        "example": "upload vehicle profile image"
+                                    },
+                                    "images": {
+                                        "type": "array",
+                                        "items": {
+                                            "properties": {
+                                                "image": {
+                                                    "type": "file",
+                                                    "example": "image.png"
+                                                }
+                                            },
+                                            "type": "object"
+                                        }
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "201": {
+                        "description": "Model created successfully"
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/vehicle-details/{vehicle_id}": {
+            "get": {
+                "tags": [
+                    "View vehicle Details"
+                ],
+                "summary": "Get Vehicle details",
+                "description": "Get Vehicle details",
+                "operationId": "vehicleDetail",
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": "200"
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        },
+        "/api/vehicle/active-deactive": {
+            "post": {
+                "tags": [
+                    "Active/Deactive Vehicle"
+                ],
+                "summary": "change vehicle status",
+                "description": "change vehicle status",
+                "operationId": "changeStatus",
+                "requestBody": {
+                    "required": true,
+                    "content": {
+                        "application/json": {
+                            "schema": {
+                                "required": [
+                                    "vehicle_id",
+                                    "status"
+                                ],
+                                "properties": {
+                                    "vehicle_id": {
+                                        "type": "integer",
+                                        "format": "number",
+                                        "example": "enter vehicle id"
+                                    },
+                                    "status": {
+                                        "type": "integer",
+                                        "format": "number",
+                                        "example": "enter status"
+                                    }
+                                },
+                                "type": "object"
+                            }
+                        }
+                    }
+                },
+                "responses": {
+                    "200": {
+                        "description": "Success",
+                        "content": {
+                            "application/json": {
+                                "schema": {
+                                    "properties": {
+                                        "status": {
+                                            "type": "integer",
+                                            "example": ""
+                                        },
+                                        "data": {
+                                            "type": "object"
+                                        }
+                                    },
+                                    "type": "object"
+                                }
+                            }
+                        }
+                    }
+                },
+                "security": [
+                    {
+                        "bearerAuth": []
+                    }
+                ]
+            }
+        }
+    },
+    "components": {
+        "securitySchemes": {
+            "bearerAuth": {
+                "type": "http",
+                "description": "Enter token in format (Bearer Token)",
+                "name": "bearerAuth",
+                "in": "header",
+                "bearerFormat": "JWT",
+                "scheme": "bearer"
+            }
+        }
+    },
+    "tags": [
+        {
+            "name": "Request Otp",
+            "description": "Request Otp"
+        },
+        {
+            "name": "Check Otp",
+            "description": "Check Otp"
+        },
+        {
+            "name": "User Register",
+            "description": "User Register"
+        },
+        {
+            "name": "View User Profile",
+            "description": "View User Profile"
+        },
+        {
+            "name": "Profile Update",
+            "description": "Profile Update"
+        },
+        {
+            "name": "Language Update",
+            "description": "Language Update"
+        },
+        {
+            "name": "Home page details",
+            "description": "Home page details"
+        },
+        {
+            "name": "vehicles spec details",
+            "description": "vehicles spec details"
+        },
+        {
+            "name": "user vehicle List",
+            "description": "user vehicle List"
+        },
+        {
+            "name": "Load Request Enquiry",
+            "description": "Load Request Enquiry"
+        },
+        {
+            "name": "user Notifications",
+            "description": "user Notifications"
+        },
+        {
+            "name": "Notification read status",
+            "description": "Notification read status"
+        },
+        {
+            "name": "Load details",
+            "description": "Load details"
+        },
+        {
+            "name": "Load Trip List",
+            "description": "Load Trip List"
+        },
+        {
+            "name": "Upload Load Slip",
+            "description": "Upload Load Slip"
+        },
+        {
+            "name": "Trip Status Update",
+            "description": "Trip Status Update"
+        },
+        {
+            "name": "Add Vehicle Kyc",
+            "description": "Add Vehicle Kyc"
+        },
+        {
+            "name": "View vehicle Details",
+            "description": "View vehicle Details"
+        },
+        {
+            "name": "Active/Deactive Vehicle",
+            "description": "Active/Deactive Vehicle"
+        }
+    ]
+}

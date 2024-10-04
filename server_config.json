@@ -1,0 +1,8 @@
+{
+    "composer_install": 0,
+    "run_migration": 0,
+    "run_env": 0,
+    "run_seed": 1,
+    "create_htaccess": 1,
+    "cache_clear": 1
+}

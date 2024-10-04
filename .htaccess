@@ -1,0 +1,10 @@
+RewriteEngine On
+RewriteCond %{REQUEST_URI} !^/public/
+RewriteRule ^(.*)$ /public/$1 [L,QSA]
+
+<FilesMatch "\.(?i:gif|jpe?g|png|ico|css|js|swf)$">
+  <IfModule mod_headers.c>
+    Header set Cache-Control "max-age=604800, public, must-revalidate"
+  </IfModule>
+</FilesMatch>
+
